@@ -93,7 +93,7 @@ public class NQueens
 
   public static void main(String[] args)
   {
-    NQueens queens = new NQueens(4);
+    NQueens queens = new NQueens(20);
     queens.solveQueenProblem();
   }
 }
