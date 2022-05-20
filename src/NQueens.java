@@ -57,7 +57,28 @@ public class NQueens
     return true;
   }
 
+  //NU begynder det at gå i cirkler
+  public boolean placeQueens(int[][] board, int col)
+  {
+    //Hvis vi er i bunden er boardet er vi done
+    if (col >= n)
+      return true;
 
+    //Hvis vi ikke er i bunden af boardet skal vi kigge til venstre
+    for (int i = 0; i < n; i++)
+    {
+      if (isSafe(board, i, col))
+      {
+        board[i][col] = 1;
+
+        if(placeQueens(board, col+1)) //Kalder på sig selv og ser om der kan placeres dronninger i de næste kolonner
+          return true;
+        else
+          board[i][col] = 0;
+      }
+    }
+      return false;
+  }
 
   public static void main(String[] args)
   {
