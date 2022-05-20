@@ -67,7 +67,7 @@ public class NQueens
     //Hvis vi ikke er i bunden af boardet skal vi kigge til venstre
     for (int i = 0; i < n; i++)
     {
-      if (isSafe(board, i, col))
+      if (isSafe(board, col, i))
       {
         board[i][col] = 1;
 
@@ -80,8 +80,20 @@ public class NQueens
       return false;
   }
 
+  public boolean solveQueenProblem()
+  {
+    if (placeQueens(board, 0) == false)
+    {
+      System.out.println("Åh nej, dronningerne slås");
+      return false;
+    }
+    printBoard(board);
+    return true;
+  }
+
   public static void main(String[] args)
   {
     NQueens queens = new NQueens(4);
+    queens.solveQueenProblem();
   }
 }
