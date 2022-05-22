@@ -1,7 +1,11 @@
 public class UtopiaCoins {
+    //Algoritmen fungrer ved hele tiden at finde den største mønt vi kan tage, uden at komme over den amount vi skal bruge. 
+    //Hver gang den har fundet den største mønt, trækker den det fra amount, og det giver en resterende amount vi så skal finde den størst mulige mønt til. 
+    // Hvis man f.eks. skulle have 100 kr, ville man tage 22 først.Så 100-22 = 78. Den største mønt der passer er 22 igen, så 78-22 = 56 så det er 22 der passer igen osv.
     static int minCoins(int[] coins, int amount) {
         int[] table = new int[amount + 1];
 
+     
         for (int i = 1; i <= amount; i++) {
             table[i] = Integer.MAX_VALUE;
         }
