@@ -5,15 +5,17 @@ public class UtopiaCoins {
     static int minCoins(int[] coins, int amount) {
         int[] table = new int[amount + 1];
 
-     
+     //Et table som resultatet kan komme i
         for (int i = 1; i <= amount; i++) {
             table[i] = Integer.MAX_VALUE;
         }
-
+//Det er i de her loops det meste af magien foregår (som beskrevet ovenover)
         for (int i = 1; i <= amount; i++) {
             for (int j = 0; j < coins.length; j++) {
                 if (coins[j] <= i) {
                     int sub_res = table[i - coins[j]];
+                    
+                    //TIlføj resultatet hvis det ikke skaber overflow
                     if (sub_res != Integer.MAX_VALUE && sub_res + 1 < table[i])
                         table[i] = sub_res + 1;
                 }
